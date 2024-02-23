@@ -5,7 +5,7 @@
 //#include "math.h"
 #include "lv2.h"
 
-/* class difinition */
+/* class definition */
 typedef struct
 {
 	float* audio_in_ptr;
@@ -15,7 +15,7 @@ typedef struct
 
 
 /* internal core methods */
-LV2_Handle instantiate (const struct LV2_Descriptor *descriptor, double sample_rate, const char *bundle_path, const LV2_Feature *const *features)
+static LV2_Handle instantiate (const struct LV2_Descriptor *descriptor, double sample_rate, const char *bundle_path, const LV2_Feature *const *features)
 {
 	MyAmp* m = (MyAmp*) calloc (1, sizeof (MyAmp));	
 	return m;
@@ -80,7 +80,7 @@ static const void * extension_data (const char *uri)
 
 
 /* descriptor */
-static LV2_Descriptor descriptor = 
+static LV2_Descriptor const descriptor = 
 {
 	"https://github.com/Inqb8tr-jp/myAmp",
 	instantiate,
@@ -94,7 +94,7 @@ static LV2_Descriptor descriptor =
 
 
 /* interface */
-LV2_SYMBOL_EXPORT const LV2_Descriptor * 	lv2_descriptor (uint32_t index)
+const LV2_SYMBOL_EXPORT LV2_Descriptor* lv2_descriptor (uint32_t index)
 {
 	if (index == 0) return &descriptor;
 	else return NULL;
