@@ -1,0 +1,7 @@
+@prefix lv2:	<https://lv2plug.in/ns/lv2core#> .
+@prefix rdfs: <https://www.w3.org/2000/01/rdf-schema#> .
+
+<https://github.com/Inqb8tr-jp/myAmp> a lv2:Plugin ;
+	lv2:binary <myAmp.so> ;
+	rdfs:seeAlso <myAmp.ttl> .
+
